@@ -20,10 +20,11 @@ messageForm.addEventListener('submit', function (e) {
         content: content
     }).then(function (object) {
         let li = document.createElement('li')
-        li.innerText = object.attributes.userName + ':' + object.attributes.content
+        li.innerText = object.attributes.userName + ': ' + object.attributes.content
         let messageList = document.querySelector('#messageList')
         messageList.appendChild(li)
-
+        messageForm.querySelector('input[name=userName]').value = ''
+        messageForm.querySelector('input[name=content]').value = ''
     })
 })
 
@@ -40,4 +41,3 @@ query.find()
             messageList.appendChild(li)
         })
     })
-
